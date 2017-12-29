@@ -1,5 +1,3 @@
-using System;
-
 namespace AnimeNetCore.Models
 {
     public class ErrorViewModel

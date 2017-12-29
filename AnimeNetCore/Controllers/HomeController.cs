@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using AnimeNetCore.Data;
 using AnimeNetCore.Models;
 
 namespace AnimeNetCore.Controllers
