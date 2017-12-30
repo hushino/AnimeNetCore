@@ -21,7 +21,7 @@ namespace AnimeNetCore.Data
         public DbSet<CommentLike> CommentLikes { get; set; }
         public DbSet<ReplyLike> ReplyLikes { get; set; }
 
-
+        
         //Esto no es nesesario en mvc5
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
