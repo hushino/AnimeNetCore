@@ -13,7 +13,6 @@ namespace AnimeNetCore.Data
         {
         }
 
-
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Reply> Replies { get; set; }
@@ -26,6 +25,16 @@ namespace AnimeNetCore.Data
         public DbSet<CommentLike> CommentLikes { get; set; }
         public DbSet<ReplyLike> ReplyLikes { get; set; }
 
-        
+
+        //Esto no es nesesario en mvc5
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PostCategory>()
+                .HasKey(c => new { c.CategotyId, c.PostId });
+
+            modelBuilder.Entity<PostTag>()
+                .HasKey(c => new { c.PostId, c.TagId });
+        }
+
     }
 }
