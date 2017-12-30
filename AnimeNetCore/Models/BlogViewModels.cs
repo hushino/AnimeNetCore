@@ -92,6 +92,37 @@ namespace AnimeNetCore.Models
         public Category Category { get; set; }
     }
 
+    public class Tag
+    {
+        public string Id { get; set; }
+        [Required]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+        [Required]
+        [Display(Name = "UrlSeo")]
+        [StringLength(200, ErrorMessage = "The {0} must between {2} and {1} characters long.", MinimumLength = 1)]
+        public string UrlSeo { get; set; }
+        public bool Checked { get; set; }
+        public ICollection<PostTag> PostTags { get; set; }
+    }
+
+    public class PostTag
+    {
+        [Key]
+        [Column(Order = 0)]
+        public string PostId { get; set; }
+
+        [Key]
+        [Column(Order = 1)]
+        public string TagId { get; set; }
+
+        public bool Checked { get; set; }
+
+        public Post Post { get; set; }
+
+        public Tag Tag { get; set; }
+    }
+
     public class Comment
     {
         public string Id { get; set; }
@@ -133,38 +164,6 @@ namespace AnimeNetCore.Models
         public Post Post { get; set; }
         public Comment Comment { get; set; }
         public ICollection<ReplyLike> ReplyLikes { get; set; }
-    }
-
-    public class Tag
-    {
-        public string Id { get; set; }
-
-        [Required]
-        [Display(Name = "Name")]
-        public string Name { get; set; }
-
-        [Required]
-        [Display(Name = "UrlSeo")]
-        [StringLength(200, ErrorMessage = "The {0} must between {2} and {1} characters long.", MinimumLength = 1)]
-        public string UrlSeo { get; set; }
-
-        public bool Checked { get; set; }
-        public ICollection<PostTag> PostTags { get; set; }
-    }
-
-    public class PostTag
-    {
-        [Key]
-        [Column(Order = 0)]
-        public string PostId { get; set; }
-
-        [Key]
-        [Column(Order = 1)]
-        public string TagId { get; set; }
-
-        public bool Checked { get; set; }
-        public Post Post { get; set; }
-        public Tag Tag { get; set; }
     }
 
     public class PostVideo
@@ -232,6 +231,20 @@ namespace AnimeNetCore.Models
         public string Title { get; set; }
         public IList<Category> PostCategories { get; set; }
         public IList<Tag> PostTags { get; set; }
+        public string UrlSlug { get; set; }
+    }
+
+    public class AllPostsViewModel
+    {
+        public IList<Category> PostsCategories { get; set; }
+        public IList<Tag> PosTags { get; set; }
+        public string PostId { get; set; }
+        public DateTime Date { get; set; }
+        public string Description { get; set; }
+        public string Title { get; set; }
+        public Category Category { get; set; }
+        public bool Checked { get; set; }
+        public Tag Tag { get; set; }
         public string UrlSlug { get; set; }
     }
 }

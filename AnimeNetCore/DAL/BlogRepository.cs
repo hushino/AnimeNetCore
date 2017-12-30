@@ -81,6 +81,16 @@ namespace AnimeNetCore.DAL
             }
         }
 
+        public IList<Tag> GetTags()
+        {
+            return _context.Tags.ToList();
+        }
+
+        public IList<Category> GetCategories()
+        {
+            return _context.Categories.ToList();
+        }
+
 
         private bool disposed = false;
 
