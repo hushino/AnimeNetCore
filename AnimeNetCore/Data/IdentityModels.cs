@@ -5,6 +5,10 @@ namespace AnimeNetCore.Data
 {
     public class BlogDbContext : DbContext
     {
+        public BlogDbContext()
+        {
+        }
+
         public BlogDbContext(DbContextOptions<BlogDbContext> options) : base(options)
         {
         }

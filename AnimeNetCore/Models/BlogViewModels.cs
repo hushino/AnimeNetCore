@@ -215,4 +215,22 @@ namespace AnimeNetCore.Models
         public bool Dislike { get; set; }
         public Reply Reply { get; set; }
     }
+
+    public class BlogViewModel
+    {
+        public DateTime PostedOn { get; set; }
+        public DateTime? Modified { get; set; }
+        public IList<Tag> Tag { get; set; }
+        public int PostDislikes { get; set; }
+        public int PostLikes { get; set; }
+        public int TotalPosts { get; set; }
+        public List<string> Category { get; set; }
+        public Post Post { get; set; }
+        public string ID { get; set; }
+        public string ShortDescription { get; set; }
+        public string Title { get; set; }
+        public IList<Tag> PostTags { get; set; }
+        public IList<Category> PostCategories { get; set; }
+        public string UrlSlug { get; set; }
+    }
 }
