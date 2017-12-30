@@ -145,7 +145,7 @@ namespace AnimeNetCore.Models
 
         [Required]
         [Display(Name = "UrlSeo")]
-        [StringLength(20, ErrorMessage = "The {0} must between {2} and {1} characters long.", MinimumLength = 1)]
+        [StringLength(200, ErrorMessage = "The {0} must between {2} and {1} characters long.", MinimumLength = 1)]
         public string UrlSeo { get; set; }
 
         public bool Checked { get; set; }
@@ -224,13 +224,14 @@ namespace AnimeNetCore.Models
         public int PostDislikes { get; set; }
         public int PostLikes { get; set; }
         public int TotalPosts { get; set; }
+        [NotMapped]
         public List<string> Category { get; set; }
         public Post Post { get; set; }
         public string ID { get; set; }
         public string ShortDescription { get; set; }
         public string Title { get; set; }
-        public IList<Tag> PostTags { get; set; }
         public IList<Category> PostCategories { get; set; }
+        public IList<Tag> PostTags { get; set; }
         public string UrlSlug { get; set; }
     }
 }

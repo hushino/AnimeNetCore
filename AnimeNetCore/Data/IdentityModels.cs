@@ -36,5 +36,9 @@ namespace AnimeNetCore.Data
                 .HasKey(c => new { c.PostId, c.TagId });
         }
 
+        
+        //Esto no es nesesario en mvc5
+        public DbSet<AnimeNetCore.Models.BlogViewModel> BlogViewModel { get; set; }
+
     }
 }
